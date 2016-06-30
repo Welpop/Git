@@ -26,4 +26,31 @@ file_put_contents("texte.log", $content);
 unlink("texte.log");
 */
 
+//vérifier si le fichier existe
+if(file_exists("texte.log")){
+	echo "Le fichier texte.log existe";
+}
+
+//vérifier si un répertoire var existe, et le créer si besoin
+if(!is_dir('var')){
+	mkdir("var");
+}
+//modifier les permissions d'un fichier
+chmod('text.txt',0644);
+
+//déplacer ou renommer un fichier
+rename('texte.log','var/texte.log');
+
+//récupérer le nom du dossier courant
+//récupérer le chemin du fichier courant
+echo __DIR__;
+echo dirname(__FILE__); //équivalent à echo __DIR__;
+echo __FILE__;
+
+//récupérer la date de dernière modification d'un fichier
+echo date('d/m/Y à H:i:s',filemtime("var/texte.log"));
+
+//copier un fichier
+copy('var/texte.log', "var/texte.log.backup");
+
 ?>
