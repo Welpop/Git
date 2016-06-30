@@ -53,4 +53,28 @@ echo date('d/m/Y à H:i:s',filemtime("var/texte.log"));
 //copier un fichier
 copy('var/texte.log', "var/texte.log.backup");
 
+
+
+//PHP 7
+//spaceship operator => renvoie 0 si les valeurs sont égales 1 si gauche > droite et -1 si droite > gauche
+echo 2 <=> 2;
+
+//null coalesce operator
+if(isset($_GET['id'])){
+	$id= $_GET['id'];
+}else{
+	$id ="1";
+}
+
+$id=$_GET['id']??"1";
+echo $id;
+
+//try catch
+try{
+	echo ('test');
+	throw new Exception("Error Processing Request", 1);
+}catch(Exception $e){
+	var_dump($e);
+}
+
 ?>
